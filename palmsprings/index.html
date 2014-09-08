@@ -237,30 +237,32 @@ states.selectAll("path")
     .attr("d", path);
 
 var airports=[
-    {iata: 'Los Angeles', latitude:34.0522342, longitude:-118.2436849, area:  17.73, perc: 48.5}
+    {iata: 'Los Angeles', latitude:34.0522342, longitude:-118.2436849, area:  17.73, perc: 44.2}
     ,{iata: 'Palm Springs', latitude:33.8302961, longitude:-116.5452921, area:  0, perc: 0}
-    ,{iata: 'San Diego', latitude:32.7153292, longitude:-117.1572551, area: 7.50, perc: 8.7}
-    ,{iata: 'San Francisco', latitude:37.3393857, longitude:-121.8949555, area: 8.43, perc: 1.1}
-    ,{iata: 'Atlanta', latitude:33.7489954, longitude:-84.3879824, area: 8.47, perc: 11.1}
-    ,{iata: 'New York', latitude:40.7142691, longitude:-74.0059729, area: 4.60, perc: 3.3}
-    ,{iata: 'Portland', latitude:45.5234515, longitude:-122.6762071, area: 6.09, perc: 5.7}
-    ,{iata: 'Philadelphia', latitude:39.952335, longitude:-75.163789, area: 4.38, perc: 3.0}
-    ,{iata: 'Seattle', latitude:47.2528768, longitude:-122.4442906, area: 4.66, perc: 3.4}
-    ,{iata: 'Calgary, AB', latitude:50.89019999999999, longitude:-113.9892, area:  3.66, perc: 2.1}
-    ,{iata: 'Vancouver, BC', latitude:49.27680000000001, longitude:-123.1469, area: 5.77, perc: 5.1}
+    ,{iata: 'San Diego', latitude:32.7153292, longitude:-117.1572551, area: 7.50, perc: 7.9}
+    ,{iata: 'San Francisco', latitude:37.3393857, longitude:-121.8949555, area: 8.43, perc: 10.0}
+    ,{iata: 'Atlanta', latitude:33.7489954, longitude:-84.3879824, area: 8.47, perc: 10.1}
+    ,{iata: 'New York', latitude:40.7142691, longitude:-74.0059729, area: 4.60, perc: 3.0}
+    ,{iata: 'Portland', latitude:45.5234515, longitude:-122.6762071, area: 6.09, perc: 5.2}
+    ,{iata: 'Philadelphia', latitude:39.952335, longitude:-75.163789, area: 4.38, perc: 2.7}
+    ,{iata: 'Seattle', latitude:47.2528768, longitude:-122.4442906, area: 4.66, perc: 3.1}
+    ,{iata: 'Calgary, AB', latitude:50.89019999999999, longitude:-113.9892, area:  3.66, perc: 1.9}
+    ,{iata: 'Vancouver, BC', latitude:49.27680000000001, longitude:-123.1469, area: 5.77, perc: 4.7}
+    ,{iata: 'Other', latitude:31.375822, longitude:-78.965782, area: 5.77, perc: 7.4}
     ];
 
 var flights=[
-    {origin: 'Los Angeles', destination:'Palm Springs', count:37.77}
-    ,{origin: 'San Diego', destination:'Palm Springs', count:6.77}
-    ,{origin: 'San Francisco', destination:'Palm Springs', count:8.54}
-    ,{origin: 'Atlanta', destination:'Palm Springs', count:8.62}
-    ,{origin: 'New York', destination:'Palm Springs', count:2.54}
-    ,{origin: 'Portland', destination:'Palm Springs', count:4.46}
-    ,{origin: 'Philadelphia', destination:'Palm Springs', count:2.3}
-    ,{origin: 'Seattle', destination:'Palm Springs', count:2.62}
-    ,{origin: 'Calgary, AB', destination:'Palm Springs', count:1.62}
+    {origin: 'Los Angeles', destination:'Palm Springs', count:4}
+    ,{origin: 'San Diego', destination:'Palm Springs', count:4}
+    ,{origin: 'San Francisco', destination:'Palm Springs', count:4}
+    ,{origin: 'Atlanta', destination:'Palm Springs', count:4}
+    ,{origin: 'New York', destination:'Palm Springs', count:4}
+    ,{origin: 'Portland', destination:'Palm Springs', count:4}
+    ,{origin: 'Philadelphia', destination:'Palm Springs', count:4}
+    ,{origin: 'Seattle', destination:'Palm Springs', count:4}
+    ,{origin: 'Calgary, AB', destination:'Palm Springs', count:4}
     ,{origin: 'Vancouver, BC', destination:'Palm Springs', count:4}
+    ,{origin: 'Other', destination:'Palm Springs', count:4}
     ];
 
   var linksByOrigin = {},
