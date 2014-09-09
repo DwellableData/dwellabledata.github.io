@@ -58,12 +58,12 @@ function ready(error, us) {
     .enter().append("path")
       .attr("class", function(d) { return quantize(rateById.get(d.State)); })
       .attr("d", path);
-/*
+
   svg.append("path")
       .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
       .attr("class", "states")
       .attr("d", path);
-*/
+
 }
 
 d3.select(self.frameElement).style("height", height + "px");
