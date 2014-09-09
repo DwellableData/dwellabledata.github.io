@@ -81,7 +81,7 @@
         high=Math.round(100*Math.random());
         console.log(state[id]);
       statedata[state[id]]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]), 
-          avg:Math.round((low+mid+high)/3), color:d3.interpolate("#ffffcc", "#800026")}; 
+          avg:Math.round((low+mid+high)/3), color:"red"}; 
     }); 
 
   });
