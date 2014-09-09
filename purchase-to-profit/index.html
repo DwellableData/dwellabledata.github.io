@@ -46,7 +46,7 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 queue()
-    .defer(d3.json, "us-states.json")
+    .defer(d3.json, "us.json")
     .defer(d3.tsv, "statemediandata.tsv", function(d) { rateById.set(d.State, +d.BreakevenYears); })
     .await(ready);
 
