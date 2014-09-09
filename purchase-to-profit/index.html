@@ -73,7 +73,7 @@ function ready(error, us, mediandata) {
     .selectAll("path")
       .data(topojson.feature(us, us.objects.states).features)
     .enter().append("path")
-      .attr("class", function(d) { return quantize(rateById.get(d.id)); })
+      .attr("class", function(d) { console.log(d); return quantize(rateById.get(d.id)); })
       .attr("d", path);
 
   svg.append("path")
