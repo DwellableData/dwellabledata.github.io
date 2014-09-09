@@ -2,20 +2,19 @@
 <meta charset="utf-8">
 <style>
 
-
+/*
 #states path {
   fill: none;
   stroke: #a9a9a9;
   stroke-linejoin: round;
   }
+*/
 
-/*
 .states {
   fill: none;
   stroke: #fff;
   stroke-linejoin: round;
 }
-*/
 
 .q0-9 { fill:rgb(247,251,255); }
 .q1-9 { fill:rgb(222,235,247); }
@@ -79,6 +78,8 @@ function ready(error, us, mediandata) {
       .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
       .attr("class", function(d) { console.log(d);})
       .attr("d", path);
+
+
 }
 
 d3.select(self.frameElement).style("height", h + "px");
