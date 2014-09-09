@@ -17,9 +17,9 @@
 	var h = 625;
 
 	//Define map projection
-	var projection = d3.geo.albers()
-						   .translate([w/2, h/2])
+	var projection = d3.geo.albersUsa()
 						   .scale([900]);
+						   .translate([w/2, h/2])
 
 	//Define path generator
 	var path = d3.geo.path()
@@ -68,7 +68,9 @@
 				
 					var jsonState = json.features[j].properties.name;
 		
-					if (dataState === jsonState) {
+					if (dataState -== jsonState) {
+
+						console.log(dataState)
 				
 						//Copy the data value into the JSON
 						json.features[j].properties.value = dataValue;
