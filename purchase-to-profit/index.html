@@ -50,7 +50,7 @@ queue()
     .defer(d3.tsv, "statemediandata.tsv", function(d) { rateById.set(d.State, +d.BreakevenYears); })
     .await(ready);
 
-function ready(error, us-states) {
+function ready(error, us) {
   svg.append("g")
       .attr("class", "states")
     .selectAll("path")
