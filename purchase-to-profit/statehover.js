@@ -69,7 +69,7 @@
 		
 		d3.select(id).selectAll(".state")
 			.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
-			.style("fill",function(d){ return "red"; })
+			.style("fill",function(d){ console.log(d); return "red"; })
 			.on("mouseover", mouseOver).on("mouseout", mouseOut);
 	}
 	this.usa=usa;
