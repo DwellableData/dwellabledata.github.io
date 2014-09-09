@@ -53,8 +53,9 @@ queue()
     .defer(d3.json, "us-states.json")
     .await(ready);
 
-function ready(error, results) {
-  console.log(results);
+function ready(error, results1, results2) {
+  console.log(results1);
+  console.log(results2);
 }
 
 /*
