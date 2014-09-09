@@ -64,8 +64,8 @@ function ready(error, us, mediandata) {
     .selectAll("path")
       .data(topojson.feature(us, us.objects.states).features)
     .enter().append("path")
-      .attr("class", function(d) { console.log(d); return quantize(rateById.get(d.State)); })
-      .attr("d", path);
+      .attr("d", path)
+      .style("fill", "red");
 
   svg.append("path")
       .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
