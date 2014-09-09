@@ -66,26 +66,27 @@
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+n+"</h4><table>"+
       "<tr><td>Spot</td><td>"+(d.low)+"</td></tr>"+
-      "<tr><td>Home Price</td><td>"+(d.mid)+"</td></tr>"+
-      "<tr><td>Rental Price</td><td>"+(d.high)+"</td></tr>"+
+      "<tr><td>Home Price</td><td>"+(d.high)+"</td></tr>"+
+      "<tr><td>Rental Price</td><td>"+(d.avg)+"</td></tr>"+
       "</table>";
   }
 
+  var statedata = {};
+  
   d3.tsv("statemediandata.tsv", function(d) {
 
-    var statedata = {};
-    d.forEach(function(state) {
+    d.forEach(function(state, i) {
       var low=Math.round(100*Math.random()), 
         mid=Math.round(100*Math.random()), 
         high=Math.round(100*Math.random());
-      statedata[d]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]), 
-          avg:Math.round((low+mid+high)/3)}; 
+      statedata[i]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]), 
+          avg:Math.round((low+mid+high)/3), color:d3.interpolate("#ffffcc", "#800026"}; 
     }); 
 
-    /* draw states on id #statesvg */ 
-    usa.draw("#statesvg", statedata, tooltipHtml);
-
   });
+
+  /* draw states on id #statesvg */ 
+  usa.draw("#statesvg", statedata, tooltipHtml);
 
 </script>
 
