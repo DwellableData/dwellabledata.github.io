@@ -71,7 +71,10 @@ svg.append("path")
       .datum(topojson.feature(us, us.objects.land))
       .attr("class", "land")
       .attr("d", path)
-      .style("fill", "red");
+      .style("fill", function (d,i) {
+        console.log(d)
+        return "red";
+      });
 
   svg.append("path")
       .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
