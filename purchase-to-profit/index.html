@@ -71,9 +71,10 @@
       "</table>";
   }
 
-  var statedata = {};
   
   d3.tsv("statemediandata.tsv", function(d) {
+
+    var statedata = {};
 
     d.forEach(function(state) {
       var low=Math.round(100*Math.random()), 
@@ -81,13 +82,14 @@
         high=Math.round(100*Math.random());
       statedata[state.id]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]), 
           avg:Math.round((low+mid+high)/3), color:"red"}; 
-      console.log(statedata);
     }); 
+
+
+   /* draw states on id #statesvg */ 
+    usa.draw("#statesvg", statedata, tooltipHtml);
 
   });
 
-  /* draw states on id #statesvg */ 
-  usa.draw("#statesvg", statedata, tooltipHtml);
 
 </script>
 
