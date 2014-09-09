@@ -69,8 +69,8 @@ function ready(error, us, mediandata) {
   svg.append("g")
       .attr("class", "states")
     .selectAll("path")
-      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-      .attr("class", "states")
+        .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+    .enter().append("path")
       .attr("d", path);
 }
 
