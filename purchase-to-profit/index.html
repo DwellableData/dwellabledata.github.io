@@ -56,6 +56,8 @@ function ready(error, us, mediandata) {
     rateById.set(d.State, +d.BreakevenYears); 
   });
 
+  console.log(us);
+/*
   svg.append("g")
       .attr("class", "states")
     .selectAll("path")
@@ -68,7 +70,7 @@ function ready(error, us, mediandata) {
       .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
       .attr("class", "states")
       .attr("d", path);
-
+*/
 }
 
 d3.select(self.frameElement).style("height", height + "px");
