@@ -42,6 +42,8 @@
 	//Load in data
 	d3.tsv("statemediandata.tsv", function(data) {
 
+		console.log(data)
+
 		//Set input domain for color scale
 		color.domain([
 			d3.min(data, function(d) { return d.BreakevenYears; }), 
