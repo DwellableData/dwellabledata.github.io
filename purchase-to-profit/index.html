@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Purchase to Profit</title>
-		<script type="text/javascript" src="../d3/d3.v3.js"></script>
+		<script type="text/javascript" src="../d3/d3.v3.min.js"></script>
 		<style type="text/css">
 			/* No style rules here yet */		
 		</style>
@@ -26,7 +26,7 @@
 					 .projection(projection);
 					 
 	//Define Legend Labels
-	var legend_labels = ["0-1", "2-3", "4-5", "6-7", "8-9", "10+"]
+	var legend_labels = ["0-1", "2-3", "4-5", "6-7", "8-9", "10+"];
 
 	//Define quantize scale to sort data values into buckets of color
 	var color = d3.scale.quantize()
@@ -96,9 +96,9 @@
 				   		return "#ccc";
 			   		}
 			   });
-	
+
 		});
-	
+
 	});
 	
 </script>
