@@ -53,8 +53,9 @@ queue()
     .defer(d3.tsv, "statemediandata.tsv", function(d) { rateById.set(d.State, +d.BreakevenYears); })
     .await(ready);
 
-function ready(error, results) {
-  console.log(results);
+function ready(error, us, mediandata) {
+  console.log(us);
+  console.log(mediandata);
 }
 
 /*
