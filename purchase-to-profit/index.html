@@ -56,7 +56,7 @@ function ready(error, us, mediandata) {
     rateById.set(d.State, +d.BreakevenYears); 
   });
 
-  console.log(us.features.geometry);
+  console.log(us.features);
 
   svg.append("g")
       .attr("class", "states")
