@@ -64,6 +64,8 @@
 <script>
 
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
+    console.log(n);
+    console.log(d);
     return "<h4>"+d.label+"</h4><table>"+
       "<tr><td>Home Price</td><td>"+(d.home)+"</td></tr>"+
       "<tr><td>Rate/Night</td><td>"+(d.rent)+"</td></tr>"+
