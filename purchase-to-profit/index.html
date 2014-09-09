@@ -2,11 +2,20 @@
 <meta charset="utf-8">
 <style>
 
+/*
 #states path {
   fill: none;
   stroke: #a9a9a9;
   stroke-width: 1;
   }
+*/
+
+.states {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+ 
 
 .q0-9 { fill:rgb(247,251,255); }
 .q1-9 { fill:rgb(222,235,247); }
@@ -64,6 +73,7 @@ function ready(error, us, mediandata) {
     .selectAll("path")
       .data(topojson.feature(us, us.objects.states).features)
     .enter().append("path")
+      .attr("class", function(d) { return quantize(rateById.get(d.id)); })
       .attr("d", path);
 
   svg.append("path")
