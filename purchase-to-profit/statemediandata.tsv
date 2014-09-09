@@ -1,52 +1,1 @@
-State	Label	RentalMedian	BreakevenYears	HomePrice
-Alabama	Gulf Shores	120	7.08	217300
-Alaska	Alaska	155	6.16	244000
-Arizona	Tucson	100	5.35	136600
-Arkansas	Arkansas	150	2.86	109700
-California	South Lake Tahoe	280	4.47	319700
-Colorado	Breckenridge	215	11.74	645000
-Connecticut	Connecticut	255	3.7	240600
-Delaware	Bethany Beach	267	6.96	474900
-Florida	Florida Panhandle	150	3.18	122000
-Georgia	Savannah	250	1.69	107800
-Hawaii	Kauai	250	7.25	463200
-Idaho	Ketchum	299	9.1	695000
-Illinois	Chicago	300	2.43	186600
-Indiana	Indiana	297	1.5	114000
-Iowa	Iowa	162	3.1	127100
-Kansas	Kansas	120	4.73	145000
-Kentucky	Louisville	1100	0.23	91300
-Louisiana	New Orleans	250	2.56	163600
-Maine	Bar Harbor	230	5.86	344250
-Maryland	McHenry	300	2.3	176600
-Massachusetts	Cape Cod	225	6.1	349800
-Michigan	Saugatuck	333	3.01	256300
-Minnesota	Minnesota	220	3.18	178700
-Mississippi	Gulfport	236	2.42	145900
-Missouri	Branson	137	4.43	154900
-Montana	Flathead County	200	6.24	319000
-Nebraska	Nebraska	250	2	127900
-Nevada	Las Vegas Metro	250	2.86	182500
-New Hampshire	Lake Winnipesaukee	258	4.02	264900
-New Jersey	Jersey Shore	285	1.54	112000
-New Mexico	Santa Fe	425	3.02	328300
-New York	NYC	335	6.25	535100
-North Carolina	Corolla	145	14.63	542100
-North Dakota	North Dakota	150	5.32	204000
-Ohio	Ohio	195	2.62	115300
-Oklahoma	Oklahoma	177	2.4	108700
-Oregon	Bend	225	5.05	290400
-Pennsylvania	Pocono Lake	130	3.19	106000
-Rhode Island	Newport	312	4.57	364600
-South Carolina	Myrtle Beach	125	5.32	169900
-South Dakota	South Dakota	272	1.83	127000
-Tennessee	Gatlinburg	210	2.41	129500
-Texas	Galveston	378	2.33	225000
-Utah	Park City	249	9.71	617700
-Vermont	Stowe	300	5.07	388300
-Virginia	Virginia Beach	185	5.17	244500
-Washington	Lake Chelan	275	3.15	221200
-West Virginia	Canaan Township	275	2.88	183000
-Wisconsin	Wisconsin	200	3.05	155700
-Wyoming	Jackson Hole	309	14.88	1175000
-District of Columbia	Washington DC	220	8.21	461400
+id	state	label	rent	years	homeAL	Alabama	Gulf Shores	120	7.08	217300AK	Alaska	Alaska	155	6.16	244000AZ	Arizona	Tucson	100	5.35	136600AR	Arkansas	Arkansas	150	2.86	109700CA	California	South Lake Tahoe	280	4.47	319700CO	Colorado	Breckenridge	215	11.74	645000CT	Connecticut	Connecticut	255	3.7	240600DE	Delaware	Bethany Beach	267	6.96	474900FL	Florida	Florida Panhandle	150	3.18	122000GA	Georgia	Savannah	250	1.69	107800HI	Hawaii	Kauai	250	7.25	463200ID	Idaho	Ketchum	299	9.1	695000IL	Illinois	Chicago	300	2.43	186600IN	Indiana	Indiana	297	1.5	114000IA	Iowa	Iowa	162	3.1	127100KS	Kansas	Kansas	120	4.73	145000KY	Kentucky	Louisville	1100	0.23	91300LA	Louisiana	New Orleans	250	2.56	163600ME	Maine	Bar Harbor	230	5.86	344250MD	Maryland	McHenry	300	2.3	176600MA	Massachusetts	Cape Cod	225	6.1	349800MI	Michigan	Saugatuck	333	3.01	256300MN	Minnesota	Minnesota	220	3.18	178700MS	Mississippi	Gulfport	236	2.42	145900MO	Missouri	Branson	137	4.43	154900MT	Montana	Flathead County	200	6.24	319000NE	Nebraska	Nebraska	250	2	127900NV	Nevada	Las Vegas Metro	250	2.86	182500NH	New Hampshire	Lake Winnipesaukee	258	4.02	264900NJ	New Jersey	Jersey Shore	285	1.54	112000NM	New Mexico	Santa Fe	425	3.02	328300NY	New York	NYC	335	6.25	535100NC	North Carolina	Corolla	145	14.63	542100ND	North Dakota	North Dakota	150	5.32	204000OH	Ohio	Ohio	195	2.62	115300OK	Oklahoma	Oklahoma	177	2.4	108700OR	Oregon	Bend	225	5.05	290400PA	Pennsylvania	Pocono Lake	130	3.19	106000RI	Rhode Island	Newport	312	4.57	364600SC	South Carolina	Myrtle Beach	125	5.32	169900SD	South Dakota	South Dakota	272	1.83	127000TN	Tennessee	Gatlinburg	210	2.41	129500TX	Texas	Galveston	378	2.33	225000UT	Utah	Park City	249	9.71	617700VT	Vermont	Stowe	300	5.07	388300VA	Virginia	Virginia Beach	185	5.17	244500WA	Washington	Lake Chelan	275	3.15	221200WV	West Virginia	Canaan Township	275	2.88	183000WI	Wisconsin	Wisconsin	200	3.05	155700WY	Wyoming	Jackson Hole	309	14.88	1175000DC	District of Columbia	Washington DC	220	8.21	461400
