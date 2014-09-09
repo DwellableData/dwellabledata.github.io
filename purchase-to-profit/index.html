@@ -49,13 +49,12 @@ var states = svg.append("svg:g")
     .attr("id", "states");
 
 queue()
+    .defer(d3.tsv, "statemediandata.tsv", function(d) { rateById.set(d.State, +d.BreakevenYears); })
     .defer(d3.json, "us-states.json")
-    .defer(d3.tsv, "statemediandata.tsv"})
     .await(ready);
 
-function ready(error, us, statemediandata) {
-  console.log(us);
-  console.log(statemediandata);
+function ready(error, results) {
+  console.log(results);
 }
 
 /*
