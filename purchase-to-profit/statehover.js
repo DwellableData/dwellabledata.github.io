@@ -71,7 +71,11 @@
 		d3.select(id).selectAll(".state")
 			.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
 			.style("fill",function(d){ return data[d.id].color; })
-			.text(function(d){
+			.on("mouseover", mouseOver).on("mouseout", mouseOut);
+
+		d3.select(id).selectAll(".state")
+			.data(uStatePaths).enter()
+				.text(function(d){
 					console.log(data[d.id].label)
 			        return data[d.id].label;
 			    })
@@ -84,7 +88,6 @@
 			    .attr("text-anchor","middle")
 			    .attr('font-size','6pt')
 			    .attr('display','true')
-			.on("mouseover", mouseOver).on("mouseout", mouseOut);
 	}
 	this.usa=usa;
 })();
