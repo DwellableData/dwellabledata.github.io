@@ -101,16 +101,16 @@
 				.data(collection.features).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
 					.text(function(d){
 						console.log(d);
-						if (key_stateids.indexOf(d.name) > -1) {
-				        	return data[d.name].label;
+						if (key_stateids.indexOf(d.properties.name) > -1) {
+				        	return data[d.properties.name].label;
 						};
 						return "";
 				    })
 				    .attr("x", function(d){
-				        return data[d.name].longitude;
+				        return data[d.properties.name].longitude;
 				    })
 				    .attr("y", function(d){
-				        return  data[d.name].latitude;
+				        return  data[d.properties.name].latitude;
 				    });
 
 	    });
