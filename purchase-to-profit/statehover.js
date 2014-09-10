@@ -90,7 +90,7 @@
 	      		.enter().append("path")
 	      			.attr("class", "state")
 	        		.attr("d", path)
-	        		.style("fill",function(d){ console.log(d["properties"]["name"]); return data[d.properties.name].color; })
+	        		.style("fill",function(d){ console.log(d["properties"]["name"]); return data[d["properties"]["name"]].color; })
 					.on("mouseover", mouseOver).on("mouseout", mouseOut);
 
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
@@ -99,16 +99,16 @@
 				.data(collection.features).enter().append("text").attr("class","label")
 					.text(function(d){
 						console.log(data);
-						if (key_stateids.indexOf(d.properties.name) > -1) {
-				        	return data[d.properties.name].label;
+						if (key_stateids.indexOf(d["properties"]["name"]) > -1) {
+				        	return data[d["properties"]["name"]].label;
 						};
 						return "";
 				    })
 				    .attr("x", function(d){
-				        return data[d.properties.name].longitude;
+				        return data[d["properties"]["name"]].longitude;
 				    })
 				    .attr("y", function(d){
-				        return  data[d.properties.name].latitude;
+				        return  data[d["properties"]["name"]].latitude;
 				    });
 
 	    });
