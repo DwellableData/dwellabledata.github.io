@@ -90,7 +90,7 @@
 	      		.enter().append("path")
 	      			.attr("class", "state")
 	        		.attr("d", path)
-	        		.style("fill",function(d){ statename = d["properties"]["name"]; return statedata[statename]["color"]; })
+	        		.style("fill",function(d){ statename = d["properties"]["name"]; console.log(statedata[statename]; return statedata[statename]["color"]; })
 					.on("mouseover", mouseOver).on("mouseout", mouseOut);
 
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
