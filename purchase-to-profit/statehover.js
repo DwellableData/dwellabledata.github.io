@@ -58,7 +58,7 @@
 
 	var usa={};
 		
-	usa.draw = function(id, data, toolTip){		
+	usa.draw = function(id, data, toolTip, projection){		
 		function mouseOver(d){
 			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 			
