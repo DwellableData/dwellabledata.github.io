@@ -80,8 +80,8 @@
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+d.label+"</h4><table>"+
       "<tr><td>Years to Break Even: </td><td>"+d.years+"</td></tr>"+
-      "<tr><td>Home Price: </td><td>"+format(d.home)+"</td></tr>"+
-      "<tr><td>Rate Per Night: </td><td>"+format(d.rent)+"</td></tr>"+
+      "<tr><td>Home Price: </td><td>"format(d.home)+"</td></tr>"+
+      "<tr><td>Rate Per Night: </td><td>"format(d.rent)+"</td></tr>"+
       "</table>";
   }
 
@@ -126,9 +126,9 @@
       .style("fill", function(d, i) { return colors[i]; });
 
     legend.append("text")
-      .attr("x", function(d, i){ return width - l_width - 30;})
+      .attr("x", function(d, i){ return width - l_width - 60;})
       .attr("y", function(d, i){ return height - (i*l_height) - l_height - 4;})
-      .text(function(d, i){ return legend_labels[5-i]; });
+      .text(function(d, i){ return legend_labels[5-i]+" years"; });
 
    /* draw states on id #statesvg */ 
     usa.draw("#statesvg", statedata, tooltipHtml);
