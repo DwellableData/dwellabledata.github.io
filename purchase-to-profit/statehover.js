@@ -60,6 +60,7 @@
 		
 	usa.draw = function(id, statedata, toolTip, projection){		
 		function mouseOver(d){
+			console.log(d);
 			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 			
 			statename = d["properties"]["name"]; 
