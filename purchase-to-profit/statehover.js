@@ -98,7 +98,19 @@
 	        				return statedata[statename]["color"]; 
 	        			};
 	        		})
-					.on("mouseover", mouseOver).on("mouseout", mouseOut);
+					.on("mouseover", function(d) {
+						console.log(d);
+						d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
+						
+						statename = d["properties"]["name"]; 
+						d3.select("#tooltip").html(toolTip(statedata[statename]))  
+							.style("left", (d3.event.pageX) + "px")     
+							.style("top", (d3.event.pageY - 28) + "px");
+					}) 
+
+					.on("mouseout", function(d) {
+						d3.select("#tooltip").transition().duration(500).style("opacity", 0);    
+					});
 
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
