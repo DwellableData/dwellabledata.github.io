@@ -103,17 +103,23 @@
 			d3.select(id).selectAll(".label")
 				.data(collection.features).enter().append("text").attr("class","label")
 					.text(function(d){
-						console.log(statedata);
-						if (key_stateids.indexOf(d["properties"]["name"]) > -1) {
+						statename = d["properties"]["name"]; 
+						if ((statedata[statename] != undefined) && (key_stateids.indexOf(d["properties"]["name"]) > -1) {
 				        	return statedata[d["properties"]["name"]].label;
 						};
 						return "";
 				    })
 				    .attr("x", function(d){
-				        return statedata[d["properties"]["name"]].longitude;
+				    	statename = d["properties"]["name"]; 
+	        			if (statedata[statename] != undefined) {
+				        	return statedata[statename].longitude;
+				        };
 				    })
 				    .attr("y", function(d){
-				        return statedata[d["properties"]["name"]].latitude;
+				    	statename = d["properties"]["name"]; 
+	        			if (statedata[statename] != undefined) {
+				        	return statedata[statename].latitude;
+				        };
 				    });
 
 	    });
