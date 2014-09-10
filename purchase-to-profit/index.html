@@ -89,7 +89,6 @@
   var format = d3.format("$,");
 
   function tooltipHtml(d){ /* function to create html content string in tooltip div. */
-    console.log(d);
     return "<h4>"+d["label"]+"</h4><table>"+
       "<tr><td>Break even (yrs): </td><td>"+(d["years"])+"</td></tr>"+
       "<tr><td>Home cost: </td><td>"+format(d["home"])+"</td></tr>"+
