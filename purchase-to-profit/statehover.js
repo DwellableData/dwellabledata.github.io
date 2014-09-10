@@ -116,7 +116,7 @@
 						var xPosition = d3.select(this).attr("cx");
           				var yPosition = d3.select(this).attr("cy");
 
-						d3.select("#tooltip").transition().duration(500).style("opacity", .9);    
+						d3.select("#tooltip").transition().duration(500).style("opacity", 1);    
 					});
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
