@@ -99,7 +99,7 @@
 	        				return statedata[statename]["color"]; 
 	        			};
 	        		});
-	       /*
+
 					.on("mouseover", function(d,i) {
 
           				console.log(d);
@@ -121,7 +121,6 @@
 
 						d3.select("#tooltip").transition().duration(500).style("opacity", 0);    
 					});
-			*/
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
 			d3.select(id).selectAll(".label")
