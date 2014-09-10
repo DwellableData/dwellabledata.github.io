@@ -87,7 +87,7 @@
 
 	  	d3.json("us-states.json", function(collection) {
 
-	    	d3.select(id).selectAll(".state")
+	    	d3.select(id).selectAll("path")
 	        		.data(collection.features)
 	      		.enter().append("path")
 	      			.attr("class", "state")
@@ -102,7 +102,7 @@
 					.text(function(d){
 						console.log(data);
 						if (key_stateids.indexOf(d.properties.name) > -1) {
-				        	return data[d.properties.name].label;
+				        	return data["New Jersey"].label;
 						};
 						return "";
 				    })
