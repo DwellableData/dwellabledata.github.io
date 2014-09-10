@@ -87,9 +87,9 @@
 
 	  	d3.json("us-states.json", function(collection) {
 
-	    	d3.select(id).selectAll("path")
+	    	d3.select(id).selectAll(".state")
 	        		.data(collection.features)
-	      		.enter().append("path")
+	      		.enter().append("svg:path")
 	      			.attr("class", "state")
 	        		.attr("d", path)
 	        		.style("fill",function(d) { 
