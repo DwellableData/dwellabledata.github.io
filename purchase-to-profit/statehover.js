@@ -58,7 +58,7 @@
 
 	var usa={};
 		
-	usa.draw = function(id, data, toolTip, projection){		
+	usa.draw = function(id, statedata, toolTip, projection){		
 		function mouseOver(d){
 			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 			
@@ -90,7 +90,7 @@
 	      		.enter().append("path")
 	      			.attr("class", "state")
 	        		.attr("d", path)
-	        		.style("fill",function(d){ console.log(data); return data[d["properties"]["name"]].color; })
+	        		.style("fill",function(d){ console.log(statedata); return statedata[d["properties"]["name"]].color; })
 					.on("mouseover", mouseOver).on("mouseout", mouseOut);
 
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
@@ -98,17 +98,17 @@
 			d3.select(id).selectAll(".label")
 				.data(collection.features).enter().append("text").attr("class","label")
 					.text(function(d){
-						console.log(data);
+						console.log(statedata);
 						if (key_stateids.indexOf(d["properties"]["name"]) > -1) {
-				        	return data[d["properties"]["name"]].label;
+				        	return statedata[d["properties"]["name"]].label;
 						};
 						return "";
 				    })
 				    .attr("x", function(d){
-				        return data[d["properties"]["name"]].longitude;
+				        return statedata[d["properties"]["name"]].longitude;
 				    })
 				    .attr("y", function(d){
-				        return  data[d["properties"]["name"]].latitude;
+				        return statedata[d["properties"]["name"]].latitude;
 				    });
 
 	    });
