@@ -98,8 +98,7 @@
 	        			if (statedata[statename] != undefined) {
 	        				return statedata[statename]["color"]; 
 	        			};
-	        		});
-
+	        		})
 					.on("mouseover", function(d,i) {
 
           				console.log(d);
