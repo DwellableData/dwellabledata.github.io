@@ -112,9 +112,10 @@
 				    .attr("y", function(d){
 				        return  data[d.name].latitude;
 				    });
-	    	});
 
+	    });
 
+	});
 	this.usa=usa;
 })();
 
