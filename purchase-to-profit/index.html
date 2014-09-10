@@ -11,7 +11,6 @@
   }
   .legend {
     font-size: 12px;
-    x: 20
     opacity: 0.8;
   }
   #tooltip {   
@@ -110,9 +109,6 @@
 
     }); 
 
-   /* draw states on id #statesvg */ 
-    usa.draw("#statesvg", statedata, tooltipHtml);
-
     var legend = svg.selectAll("g.legend")
       .data(legend_labels)
       .enter().append("g")
@@ -122,6 +118,7 @@
 
     legend.append("rect")
       .attr("y", function(d, i){ return height - (i*l_height) - 2*l_width;})
+      .attr("x", function(d, i){ return width - l_width;})
       .attr("width", l_width)
       .attr("height", l_height)
       .style("fill", function(d, i) { return colors[i]; })
@@ -131,6 +128,9 @@
       .attr("x", 50)
       .attr("y", function(d, i){ return height - (i*l_height) - l_height - 4;})
       .text(function(d, i){ return legend_labels[i]; });
+
+   /* draw states on id #statesvg */ 
+    usa.draw("#statesvg", statedata, tooltipHtml);
 
   });
 
