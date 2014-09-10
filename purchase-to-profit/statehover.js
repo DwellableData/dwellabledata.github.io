@@ -101,10 +101,11 @@
 	        		})
 					.on("mouseover", function(d,i) {
 
+          				console.log(d);
+	        			statename = d["properties"]["name"];
+	        			console.log(statedata[statename]);
 						var xPosition = d3.select(this).attr("cx");
           				var yPosition = d3.select(this).attr("cy");
-
-          				console.log(d);
 
 						d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 
