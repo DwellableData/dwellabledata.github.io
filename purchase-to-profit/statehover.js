@@ -76,10 +76,9 @@
 		key_stateids = ["WA", "CA", "CO", "GA", "HI", "IL", "LA", "MA", "MO", "NC"];
 
 		d3.select(id).selectAll(".label")
-			.data(data).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
+			.data(uStatePaths).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
 				.text(function(d){
-					console.log(d[id]);
-					console.log(key_stateids.indexOf(d[id]));					
+					console.log(d);			
 					if (key_stateids.indexOf(d[id]) > -1) {
 						console.log(data[d.id].label)
 			        	return data[d.id].label;
