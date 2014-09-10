@@ -9,6 +9,11 @@
   .state:hover{
     fill-opacity:0.5;
   }
+  .legend {
+    font-size: 12px;
+    x: 20
+    opacity: 0.8;
+  }
   #tooltip {   
     position: absolute;           
     text-align: center;
@@ -52,7 +57,10 @@
 <div id="tooltip">
 </div>
 
-<svg width="960" height="600" id="statesvg">
+var width = 960;
+var height = 500;
+
+<svg width=960 height=500>
 </svg>
 
 <script src="statehover.js">
@@ -64,6 +72,7 @@
 <script>
 
   var colors = ['rgb(252,141,89)','rgb(254,224,144)','rgb(255,255,191)','rgb(224,243,248)','rgb(145,191,219)','rgb(69,117,180)'];
+  var legend_labels = ['0-1', '2-3', '4-5', '6-7', '8-9', '10+']
 
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+d.label+"</h4><table>"+
@@ -101,6 +110,25 @@
 
    /* draw states on id #statesvg */ 
     usa.draw("#statesvg", statedata, tooltipHtml);
+
+    var legend = svg.selectAll("g.legend")
+      .data(legend_labels)
+      .enter().append("g")
+      .attr("class", "legend")
+
+    var l_width = 20, l_height = 20;
+
+    legend.append("rect")
+      .attr("y", function(d, i){ return height - (i*l_height) - 2*l_width;})
+      .attr("width", ls_w)
+      .attr("height", ls_h)
+      .style("fill", function(d, i) { return color[i]); })
+      .style("opacity", 0.8);
+
+    legend.append("text")
+      .attr("x", 50)
+      .attr("y", function(d, i){ return height - (i*l_height) - l_height - 4;})
+      .text(function(d, i){ return legend_labels[i]; });
 
   });
 
