@@ -101,9 +101,18 @@
 	        		})
 					.on("mouseover", function(d) {
 						console.log(d);
+						statename = d["properties"]["name"]; 
+						console.log(statename);
+						
+						var xPosition = d3.select(this).attr("cx");
+          				var yPosition = d3.select(this).attr("cy");
+          				
+          				console.log(xPosition);
+          				console.log(yPosition);
+						
 						d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 						
-						statename = d["properties"]["name"]; 
+
 						d3.select("#tooltip").html(toolTip(statedata[statename]))  
 							.style("left", (d3.event.pageX) + "px")     
 							.style("top", (d3.event.pageY - 28) + "px");
