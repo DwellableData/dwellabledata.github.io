@@ -107,10 +107,10 @@
 						return "";
 				    })
 				    .attr("x", function(d){
-				        return data[d.properties.name].longitude;
+				        return data["New Jersey"].longitude;
 				    })
 				    .attr("y", function(d){
-				        return  data[d.properties.name].latitude;
+				        return  data["New Jersey"].latitude;
 				    });
 
 	    });
