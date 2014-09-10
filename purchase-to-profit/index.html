@@ -9,7 +9,7 @@
   .state:hover{
     fill-opacity:0.5;
   }
-  .state label{
+  .label{
     font-size: 12px;
     text-anchor: middle;
     color: black;
@@ -77,9 +77,8 @@
     .attr("id", "statesvg")
     .style("margin", "10px auto");
 
-    //var projection = d3.geo.albersUsa()
     var projection = d3.geo.albersUsa()
-      .scale(1260)
+      .scale(1000)
       .translate([width/2, height/2]);
 
 /*
