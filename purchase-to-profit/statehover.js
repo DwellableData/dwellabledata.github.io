@@ -98,7 +98,7 @@
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
 			d3.select(id).selectAll(".label")
-				.data(uStatePaths).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
+				.data(collection.features).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
 					.text(function(d){
 						if (key_stateids.indexOf(d.name) > -1) {
 							console.log(data[d.name].label)
