@@ -98,11 +98,7 @@
 	        			if (statedata[statename] != undefined) {
 	        				return statedata[statename]["color"]; 
 	        			};
-	        		});
-
-	        d3.selectAll("state")
-	        	.data(collection.features).enter()
-					.on("mouseover", function(d,i) {
+					.on("mouseover", function(d) {
           				console.log(d);
 	        			statename = d["properties"]["name"];
 	        			console.log(statedata[statename]);
@@ -115,12 +111,11 @@
 							.style("left", (d3.event.pageX) + "px")     
 							.style("top", (d3.event.pageY - 28) + "px");
 					}) 
-
-					.on("mouseout", function(d,i) {
+					.on("mouseout", function(d) {
 						var xPosition = d3.select(this).attr("cx");
           				var yPosition = d3.select(this).attr("cy");
 
-						d3.select("#tooltip").transition().duration(500).style("opacity", 0);    
+						d3.select("#tooltip").transition().duration(500).style("opacity", .9);    
 					});
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
