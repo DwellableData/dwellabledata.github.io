@@ -73,9 +73,12 @@
 			.style("fill",function(d){ return data[d.id].color; })
 			.on("mouseover", mouseOver).on("mouseout", mouseOut);
 
+		key_stateids = ["WA", "CA", "CO", "GA", "HI", "IL", "LA", "MA", "MO", "NC"];
+
 		d3.select(id).selectAll(".label")
 			.data(uStatePaths).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
 				.text(function(d){
+					if d.id === "HI"
 					console.log(data[d.id].label)
 			        return data[d.id].label;
 			    })
