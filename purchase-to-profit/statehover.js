@@ -81,7 +81,7 @@
       		.path()
       		.projection(projection);
 		
-		var states = svg.append("path")
+		var states = svg.append("g")
     		.attr("id", "state");
 
 	  	d3.json("us-states.json", function(collection) {
