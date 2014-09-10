@@ -80,12 +80,14 @@
     	var path = d3.geo
       		.path()
       		.projection(projection);
+		
+		var states = svg.append("svg:g")
+    		.attr("class", "state");
 
 	  	d3.json("us-states.json", function(collection) {
 	    	states.selectAll("path")
 	        		.data(collection.features)
 	      		.enter().append("path")
-	      			.attr("class","state")
 	        		.attr("d", path)
 	        		.style("fill",function(d){ return data["CA"].color; })
 					.on("mouseover", mouseOver).on("mouseout", mouseOut);
