@@ -90,7 +90,7 @@
 
 	    	d3.select(id).selectAll("path")
 	        		.data(collection.features)
-	      		.enter().append("svg:path")
+	      		.enter().append("path")
 	      			.attr("class", "state")
 	        		.attr("d", path)
 	        		.style("fill",function(d) { 
@@ -100,14 +100,9 @@
 	        			}
 	        		})
 					.on("mouseover", function(d) {
-          				console.log(d);
+
 	        			statename = d["properties"]["name"];
-	        			console.log(statedata[statename]);
-						var xPosition = d3.select(this).attr("cx");
-          				var yPosition = d3.select(this).attr("cy");
-
-						d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
-
+						d3.select("#tooltip").transition().duration(200).style("opacity", 0.9);      
 						d3.select("#tooltip").html(toolTip(statedata[statename]))  
 							.style("left", (d3.event.pageX) + "px")     
 							.style("top", (d3.event.pageY - 28) + "px");
@@ -116,7 +111,7 @@
 						var xPosition = d3.select(this).attr("cx");
           				var yPosition = d3.select(this).attr("cy");
 
-						d3.select("#tooltip").transition().duration(500).style("opacity", 1);    
+						d3.select("#tooltip").transition().duration(500).style("opacity", 0);    
 					});
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
