@@ -55,7 +55,6 @@
 <body>
 
 <div id="tooltip"></div>
-<!--<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
 
 <script type="text/javascript" src="statehover.js"></script>
 
@@ -65,7 +64,7 @@
 
 
   var width = 960;
-  var height = 500;
+  var height = 600;
 
   var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -110,7 +109,7 @@
 
     }); 
 
-    var legend = d3.selectAll("g.legend")
+    var legend = svg.selectAll("g.legend")
       .data(legend_labels)
       .enter().append("g")
       .attr("class", "legend")
