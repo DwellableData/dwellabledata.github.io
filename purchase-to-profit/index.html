@@ -61,9 +61,11 @@
 <body>
 
 <div id="tooltip"></div>
-
+<!-- 
 <script type="text/javascript" src="statehover.js"></script>
+-->
 
+<script type="text/javascript" src="../d3/d3.v3.min.js"></script>
 <script type="text/javascript" src="../d3/d3.v3.min.js"></script>
 
 <script>
@@ -82,11 +84,18 @@
       .scale(1450)
       .translate([width/2, height/2]);
 
-/*
     var path = d3.geo
       .path()
       .projection(projection);
-*/
+
+  d3.json("us-states.json", function(collection) {
+    states.selectAll("path")
+        .data(collection.features)
+      .enter().append("svg:path")
+        .attr("d", path);
+    });
+
+
   var colors = ['rgb(252,141,89)','rgb(254,224,144)','rgb(255,255,191)','rgb(224,243,248)','rgb(145,191,219)','rgb(69,117,180)'];
   var legend_labels = ['0-1', '2-3', '4-5', '6-7', '8-9', '10+']
 
@@ -125,7 +134,7 @@
       var location = [+state.longitude, +state.latitude];
       var position = projection(location);
 
-      statedata[state.id]={state: state.state, label: state.label, rent: state.rent, years: state.years, home: state.home, latitude:  position[1], longitude: position[0], color:shade}; 
+      statedata[state.state]={state: state.state, label: state.label, rent: state.rent, years: state.years, home: state.home, latitude:  position[1], longitude: position[0], color:shade}; 
 
     }); 
 
