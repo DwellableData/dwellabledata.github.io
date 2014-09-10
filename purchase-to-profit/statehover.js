@@ -95,22 +95,15 @@
 	        		.attr("d", path)
 	        		.style("fill",function(d) { 
 	        			statename = d["properties"]["name"]; 
-	        			console.log(statename);
 	        			if (statedata[statename] != undefined) {
+	        				console.log(statename);
 	        				return statedata[statename]["color"]; 
 	        			};
 	        		})
 					.on("mouseover", function(d) {
 						statename = d["properties"]["name"]; 
-
-						var xPosition = d3.select(this).attr("cx");
-          				var yPosition = d3.select(this).attr("cy");
-          				
-          				console.log(xPosition);
-          				console.log(yPosition);
-						
+          				console.log(statename);
 						d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
-						
 
 						d3.select("#tooltip").html(toolTip(statedata[statename]))  
 							.style("left", (d3.event.pageX) + "px")     
