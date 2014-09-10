@@ -84,7 +84,7 @@
 		var states = svg.append("g");
 
 	  	d3.json("us-states.json", function(collection) {
-	    	states.selectAll("path")
+	    	d3.selectAll("path")
 	        		.data(collection.features)
 	      		.enter().append("path")
 	      			.attr("class", "state")
