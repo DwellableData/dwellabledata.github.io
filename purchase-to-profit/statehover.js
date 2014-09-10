@@ -72,6 +72,7 @@
 			.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
 			.style("fill",function(d){ return data[d.id].color; })
 			.text(function(d){
+					console.log(data[d.id].label)
 			        return data[d.id].label;
 			    })
 			    .attr("x", function(d){
@@ -82,6 +83,7 @@
 			    })
 			    .attr("text-anchor","middle")
 			    .attr('font-size','6pt')
+			    .attr('display','true')
 			.on("mouseover", mouseOver).on("mouseout", mouseOut);
 	}
 	this.usa=usa;
