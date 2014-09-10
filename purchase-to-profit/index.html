@@ -117,7 +117,10 @@
         shade = colors[0];
       };
 
-      statedata[state.id]={state: state.state, label: state.label, rent: state.rent, years: state.years, home: state.home, latitude:  state.latitude, longitude: state.longitude, color:shade}; 
+      var location = [+state.longitude, +state.latitude];
+      var position = projection(location);
+
+      statedata[state.id]={state: state.state, label: state.label, rent: state.rent, years: state.years, home: state.home, latitude:  position[1], longitude: position[0], color:shade}; 
 
     }); 
 

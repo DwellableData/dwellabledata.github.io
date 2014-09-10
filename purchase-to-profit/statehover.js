@@ -72,13 +72,13 @@
 			.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
 			.style("fill",function(d){ return data[d.id].color; })
 			.text(function(d){
-			        return data[d.label];
+			        return data[d.id].label;
 			    })
 			    .attr("x", function(d){
-			        return state.longitude;
+			        return data[d.id].longitude;
 			    })
 			    .attr("y", function(d){
-			        return  state.latitude;
+			        return  data[d.id].latitude;
 			    })
 			    .attr("text-anchor","middle")
 			    .attr('font-size','6pt')
