@@ -11,7 +11,7 @@
   }
   .label{
     font-size: 12px;
-    text-anchor: middle;
+    text-anchor: left;
     color: black;
   }
   .legend {
@@ -93,8 +93,8 @@
 
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+d.label+"</h4><table>"+
-      "<tr><td>Years to Break Even: </td><td>"+(d.years)+"</td></tr>"+
-      "<tr><td>Home Price: </td><td>"+format(d.home)+"</td></tr>"+
+      "<tr><td>Break even (yrs): </td><td>"+(d.years)+"</td></tr>"+
+      "<tr><td>Home Cost: </td><td>"+format(d.home)+"</td></tr>"+
       "<tr><td>Rate per Night: </td><td>"+(format(d.rent))+"</td></tr>"+
       "</table>";
   }
