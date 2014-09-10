@@ -95,15 +95,14 @@
 	        		.attr("d", path)
 	        		.style("fill",function(d) { 
 	        			statename = d["properties"]["name"]; 
+	        			console.log(statename);
 	        			if (statedata[statename] != undefined) {
 	        				return statedata[statename]["color"]; 
 	        			};
 	        		})
 					.on("mouseover", function(d) {
-						console.log(d);
 						statename = d["properties"]["name"]; 
-						console.log(statename);
-						
+
 						var xPosition = d3.select(this).attr("cx");
           				var yPosition = d3.select(this).attr("cy");
           				
