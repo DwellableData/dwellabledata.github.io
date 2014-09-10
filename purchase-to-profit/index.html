@@ -117,15 +117,15 @@
     var l_width = 20, l_height = 20;
 
     legend.append("rect")
-      .attr("y", function(d, i){ return height - (i*l_height) - 2*l_width;})
       .attr("x", function(d, i){ return width - l_width;})
+      .attr("y", function(d, i){ return height - (i*l_height) - 2*l_width;})
       .attr("width", l_width)
       .attr("height", l_height)
       .style("fill", function(d, i) { return colors[i]; })
       .style("opacity", 0.8);
 
     legend.append("text")
-      .attr("x", 50)
+      .attr("x", function(d, i){ return width - l_width - 20;})
       .attr("y", function(d, i){ return height - (i*l_height) - l_height - 4;})
       .text(function(d, i){ return legend_labels[i]; });
 
