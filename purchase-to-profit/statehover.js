@@ -83,11 +83,12 @@
 
 	  	d3.json("us-states.json", function(collection) {
 	    	states.selectAll("path")
-	        	.data(collection.features)
-	      	.enter().append("path")
-	        	.attr("d", path);
-	        .style("fill",function(d){ return data["CA"].color; })
-			.on("mouseover", mouseOver).on("mouseout", mouseOut);
+	        		.data(collection.features)
+	      		.enter().append("path")
+	      			.attr("class","state")
+	        		.attr("d", path)
+	        		.style("fill",function(d){ return data["CA"].color; })
+					.on("mouseover", mouseOver).on("mouseout", mouseOut);
 	    	});
 
 
