@@ -36,6 +36,7 @@
     padding:4px;
     color:white;
     opacity:0;
+    white-space: nowrap;
   }
   #tooltip table{
     table-layout:fixed;
@@ -76,9 +77,9 @@
 
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
     return "<h4>"+d.label+"</h4><table>"+
-      "<tr><td>Breakeven</td><td>"+(d.years)+"</td></tr>"+
-      "<tr><td>Price</td><td>"+(d.home)+"</td></tr>"+
-      "<tr><td>Rate/Night</td><td>"+(d.rent)+"</td></tr>"+
+      "<tr><td>Breakeven Price</td><td>"+(d.years)+"</td></tr>"+
+      "<tr><td>Price BLAH BLAH BLAH</td><td>"+(d.home)+"</td></tr>"+
+      "<tr><td>Rate Per Night</td><td>"+(d.rent)+"</td></tr>"+
       "</table>";
   }
 
