@@ -67,8 +67,6 @@
 			d3.select("#tooltip").transition().duration(500).style("opacity", 0);      
 		}
 
-        var location = [+data.longitude, +data.latitude];
-        var position = projection(location);
 
 		d3.select(id).selectAll(".state")
 			.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
@@ -77,10 +75,10 @@
 			        return data[d.label];
 			    })
 			    .attr("x", function(d){
-			        return position[0];
+			        return state.longitude;
 			    })
 			    .attr("y", function(d){
-			        return  position[1];
+			        return  state.latitude;
 			    })
 			    .attr("text-anchor","middle")
 			    .attr('font-size','6pt')
