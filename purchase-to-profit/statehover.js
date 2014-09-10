@@ -97,7 +97,8 @@
 	        			statename = d["properties"]["name"]; 
 	        			if (statedata[statename] != undefined) {
 	        				return statedata[statename]["color"]; 
-	        			})
+	        			}
+	        		})
 					.on("mouseover", function(d) {
           				console.log(d);
 	        			statename = d["properties"]["name"];
