@@ -67,6 +67,9 @@
 			d3.select("#tooltip").transition().duration(500).style("opacity", 0);      
 		}
 
+        var location = [+data.longitude, +data.latitude];
+        var position = projection(location);
+
 		d3.select(id).selectAll(".state")
 			.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
 			.style("fill",function(d){ return data[d.id].color; })
@@ -74,10 +77,10 @@
 			        return data[d.label];
 			    })
 			    .attr("x", function(d){
-			        return path.centroid(d)[0];
+			        return position[0];
 			    })
 			    .attr("y", function(d){
-			        return  path.centroid(d)[1];
+			        return  position[1];
 			    })
 			    .attr("text-anchor","middle")
 			    .attr('font-size','6pt')
