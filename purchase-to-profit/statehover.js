@@ -73,8 +73,8 @@
 			.style("fill",function(d){ return data[d.id].color; })
 			.on("mouseover", mouseOver).on("mouseout", mouseOut);
 
-		d3.select(id).selectAll(".state")
-			.data(uStatePaths).enter()
+		d3.select(id).selectAll(".label")
+			.data(uStatePaths).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
 				.text(function(d){
 					console.log(data[d.id].label)
 			        return data[d.id].label;
@@ -84,10 +84,7 @@
 			    })
 			    .attr("y", function(d){
 			        return  data[d.id].latitude;
-			    })
-			    .attr("text-anchor","middle")
-			    .attr('font-size','6pt')
-			    .attr('display','true')
+			    });
 	}
 	this.usa=usa;
 })();
