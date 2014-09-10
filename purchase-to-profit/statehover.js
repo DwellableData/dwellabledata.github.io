@@ -94,7 +94,6 @@
 	        		.attr("d", path)
 	        		.style("fill",function(d){ return data["California"].color; })
 					.on("mouseover", mouseOver).on("mouseout", mouseOut);
-	    	});
 
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
@@ -113,7 +112,9 @@
 				    .attr("y", function(d){
 				        return  data[d.name].latitude;
 				    });
-	}
+	    	});
+
+
 	this.usa=usa;
 })();
 
