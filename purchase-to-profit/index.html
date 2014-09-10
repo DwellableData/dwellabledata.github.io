@@ -120,8 +120,8 @@
 
     legend.append("rect")
       .attr("y", function(d, i){ return height - (i*l_height) - 2*l_width;})
-      .attr("width", ls_w)
-      .attr("height", ls_h)
+      .attr("width", l_width)
+      .attr("height", l_height)
       .style("fill", function(d, i) { return color[i]); })
       .style("opacity", 0.8);
 
