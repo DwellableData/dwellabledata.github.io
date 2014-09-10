@@ -82,17 +82,15 @@
     	var path = d3.geo
       		.path()
       		.projection(projection);
-		
-		var states = svg.append("g");
 
 	  	d3.json("us-states.json", function(collection) {
 
 	    	d3.select(id).selectAll("path")
 	        		.data(collection.features)
 	      		.enter().append("path")
-	      			.attr("class", "state")
+//	      			.attr("class", "state")
 	        		.attr("d", path)
-	        		.style("fill",function(d){ return data["New Jersey"].color; })
+	        		.style("fill",function(d){ return data[d.properties.name].color; })
 					.on("mouseover", mouseOver).on("mouseout", mouseOut);
 
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
@@ -102,15 +100,15 @@
 					.text(function(d){
 						console.log(data);
 						if (key_stateids.indexOf(d.properties.name) > -1) {
-				        	return data["New Jersey"].label;
+				        	return data[d.properties.name].label;
 						};
 						return "";
 				    })
 				    .attr("x", function(d){
-				        return data["New Jersey"].longitude;
+				        return data[d.properties.name].longitude;
 				    })
 				    .attr("y", function(d){
-				        return  data["New Jersey"].latitude;
+				        return  data[d.properties.name].latitude;
 				    });
 
 	    });
