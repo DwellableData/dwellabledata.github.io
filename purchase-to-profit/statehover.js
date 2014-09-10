@@ -78,7 +78,7 @@
 		d3.select(id).selectAll(".label")
 			.data(uStatePaths).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
 				.text(function(d){
-					if (key_stateids.contains(d[id])) {
+					if (key_stateids.indexOf(d[id]) > -1) {
 						console.log(data[d.id].label)
 			        	return data[d.id].label;
 					}
