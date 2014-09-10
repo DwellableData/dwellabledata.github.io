@@ -99,7 +99,11 @@
 	        				return statedata[statename]["color"]; 
 	        			};
 	        		})
-					.on("mouseover", function(d) {
+					.on("mouseover", function(d,i) {
+
+						var xPosition = d3.select(this).attr("cx");
+          				var yPosition = d3.select(this).attr("cy");
+
 						statename = d["properties"]["name"]; 
           				console.log(statename);
 						d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
@@ -109,7 +113,10 @@
 							.style("top", (d3.event.pageY - 28) + "px");
 					}) 
 
-					.on("mouseout", function(d) {
+					.on("mouseout", function(d,i) {
+						var xPosition = d3.select(this).attr("cx");
+          				var yPosition = d3.select(this).attr("cy");
+
 						d3.select("#tooltip").transition().duration(500).style("opacity", 0);    
 					});
 
