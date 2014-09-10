@@ -104,8 +104,8 @@
 				.data(collection.features).enter().append("text").attr("class","label")
 					.text(function(d){
 						statename = d["properties"]["name"]; 
-						if ((statedata[statename] != undefined) && (key_stateids.indexOf(d["properties"]["name"]) > -1) {
-				        	return statedata[d["properties"]["name"]].label;
+						if ((statedata[statename] != undefined) && (key_stateids.indexOf(statename) > -1)) {
+				        	return statedata[statename].label;
 						};
 						return "";
 				    })
