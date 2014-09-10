@@ -104,8 +104,8 @@
 						var xPosition = d3.select(this).attr("cx");
           				var yPosition = d3.select(this).attr("cy");
 
-						statename = d["properties"]["name"]; 
-          				console.log(statename);
+          				console.log(d);
+
 						d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 
 						d3.select("#tooltip").html(toolTip(statedata[statename]))  
