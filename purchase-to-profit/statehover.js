@@ -98,7 +98,7 @@
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
 			d3.select(id).selectAll(".label")
-				.data(collection.features).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
+				.data(collection.features).enter().append("text").attr("class","label")
 					.text(function(d){
 						console.log(data);
 						if (key_stateids.indexOf(d.properties.name) > -1) {
