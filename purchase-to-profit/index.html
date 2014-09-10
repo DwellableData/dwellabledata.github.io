@@ -78,10 +78,13 @@
   var format = d3.format("+$,");
 
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
+    formathome = format(d.home);
+    formatrent = format(d.rent);
+
     return "<h4>"+d.label+"</h4><table>"+
       "<tr><td>Years to Break Even: </td><td>"+d.years+"</td></tr>"+
-      "<tr><td>Home Price: </td><td>"format(d.home)+"</td></tr>"+
-      "<tr><td>Rate Per Night: </td><td>"format(d.rent)+"</td></tr>"+
+      "<tr><td>Home Price: </td><td>"+formathome+"</td></tr>"+
+      "<tr><td>Rate Per Night: </td><td>"+formatrent+"</td></tr>"+
       "</table>";
   }
 
