@@ -98,9 +98,11 @@
 	        			if (statedata[statename] != undefined) {
 	        				return statedata[statename]["color"]; 
 	        			};
-	        		})
-					.on("mouseover", function(d,i) {
+	        		});
 
+	        d3.selectAll("state")
+	        	.data(collection.features).enter()
+					.on("mouseover", function(d,i) {
           				console.log(d);
 	        			statename = d["properties"]["name"];
 	        			console.log(statedata[statename]);
