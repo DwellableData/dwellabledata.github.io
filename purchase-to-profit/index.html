@@ -64,9 +64,7 @@
 <script>
 
   function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
-    console.log(n);
-    console.log(d);
-    return "<h4>"+d.label+"</h4><table>"+
+    return "<h4>"+n+"</h4><table>"+
       "<tr><td>Home Price</td><td>"+(d.home)+"</td></tr>"+
       "<tr><td>Rate/Night</td><td>"+(d.rent)+"</td></tr>"+
       "</table>";
@@ -78,14 +76,12 @@
     var statedata = {};
 
     d.forEach(function(state) {
-      var low=Math.round(100*Math.random()), 
-        mid=Math.round(100*Math.random()), 
-        high=Math.round(100*Math.random());
-      statedata[state.id]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]), 
-          avg:Math.round((low+mid+high)/3), color:d3.interpolate("#ffffcc", "#800026")(low/100)}; 
+      var color = "red";
+
+      statedata[state.id]={state: state.state, label: state.label, rent: state.rent, years: state.years, home: state.home, color:color; 
+        
     }); 
 
-    console.log(statedata);
    /* draw states on id #statesvg */ 
     usa.draw("#statesvg", statedata, tooltipHtml);
 
