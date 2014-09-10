@@ -58,18 +58,20 @@
 <div id="tooltip">
 </div>
 
+<script type="text/javascript" src="statehover.js"></script>
 
-<svg width=960 height=500></svg>
-
-<script src="statehover.js"></script>
-
-<script src="../d3/d3.v3.min.js"></script>
+<script type="text/javascript" src="../d3/d3.v3.min.js"></script>
 
 <script>
 
 
   var width = 960;
   var height = 500;
+
+  var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .style("margin", "10px auto");
   
   var colors = ['rgb(252,141,89)','rgb(254,224,144)','rgb(255,255,191)','rgb(224,243,248)','rgb(145,191,219)','rgb(69,117,180)'];
   var legend_labels = ['0-1', '2-3', '4-5', '6-7', '8-9', '10+']
