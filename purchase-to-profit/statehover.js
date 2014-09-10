@@ -78,9 +78,11 @@
 		d3.select(id).selectAll(".label")
 			.data(uStatePaths).enter().append("text").attr("class","label").attr("d",function(d){ return d.d;})
 				.text(function(d){
-					if d.id === "HI"
-					console.log(data[d.id].label)
-			        return data[d.id].label;
+					if (key_stateids.contains(d[id])) {
+						console.log(data[d.id].label)
+			        	return data[d.id].label;
+					}
+
 			    })
 			    .attr("x", function(d){
 			        return data[d.id].longitude;
