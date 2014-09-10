@@ -71,7 +71,17 @@
     .attr("height", height)
     .attr("id", "statesvg")
     .style("margin", "10px auto");
-  
+
+    //var projection = d3.geo.albersUsa()
+    var projection = d3.geo.albersUsa()
+      .scale(1260)
+      .translate([width/2, height/2]);
+
+/*
+    var path = d3.geo
+      .path()
+      .projection(projection);
+*/
   var colors = ['rgb(252,141,89)','rgb(254,224,144)','rgb(255,255,191)','rgb(224,243,248)','rgb(145,191,219)','rgb(69,117,180)'];
   var legend_labels = ['0-1', '2-3', '4-5', '6-7', '8-9', '10+']
 
@@ -131,7 +141,7 @@
       .text(function(d, i){ return legend_labels[5-i]+" years"; });
 
    /* draw states on id #statesvg */ 
-    usa.draw("#statesvg", statedata, tooltipHtml, projection);
+    usa.draw("#statesvg", statedata, tooltipHtml);
 
   });
 
