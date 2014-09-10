@@ -96,7 +96,6 @@
 	        		.style("fill",function(d) { 
 	        			statename = d["properties"]["name"]; 
 	        			if (statedata[statename] != undefined) {
-	        				console.log(statename);
 	        				return statedata[statename]["color"]; 
 	        			};
 	        		})
