@@ -88,10 +88,10 @@
 
 	  	d3.json("us-states.json", function(collection) {
 
-	    	d3.select(id).selectAll(".state")
+	    	d3.select(id).selectAll("path")
 	    		.data(collection.features)
 	      		.enter().append("path")
-	      			.attr("class", "state")
+	      			.attr("class", ".state")
 	        		.attr("d", path)
 	        		.style("fill",function(d) { 
 	        			statename = d["properties"]["name"]; 
@@ -100,6 +100,8 @@
 	        			}
 	        		})
 					.on("mouseover", function(d) {
+
+
 
 	        			statename = d["properties"]["name"];
 						d3.select("#tooltip").transition().duration(200).style("opacity", 0.9);      
@@ -113,6 +115,7 @@
 
 						d3.select("#tooltip").transition().duration(500).style("opacity", 0);    
 					});
+
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
 			d3.select(id).selectAll(".label")
