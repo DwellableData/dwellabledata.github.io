@@ -94,7 +94,7 @@
 	      			.attr("class", "state")
 	        		.attr("d", function(d) {
 	        			console.log(d);
-	        			return d3.geo.path();
+	        			return d3.geo.path().projection(projection);
 	        		})
 	        		.style("fill",function(d) { 
 	        			statename = d["properties"]["name"]; 
