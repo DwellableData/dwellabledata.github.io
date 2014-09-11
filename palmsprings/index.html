@@ -299,10 +299,8 @@ var flights=[
     });
 
     // Compute the Voronoi diagram of airports' projected positions.
-    console.log(positions);
     var polygons = d3.geom.voronoi(positions);
-    console.log(polygons);
-    
+
     var g = cells.selectAll("g")
         .data(airports)
       .enter().append("svg:g");
