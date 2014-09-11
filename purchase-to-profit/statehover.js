@@ -89,12 +89,12 @@
 	  	d3.json("us-states.json", function(collection) {
 
 	    	d3.select(id).selectAll(".state")
-	    		.data(collection.features)
+	    		.datum(collection.features)
 	      		.enter().append("path")
 	      			.attr("class", "state")
 	        		.attr("d", function(d) {
 	        			console.log(d);
-	        			return d3.geo.path(d["geometry"]).projection(projection);
+	        			return d3.geo.path().projection(projection);
 	        		})
 	        		.style("fill",function(d) { 
 	        			statename = d["properties"]["name"]; 
