@@ -93,7 +93,7 @@
 	      		.enter().append("path")
 	      			.attr("class", "state")
 	        		.attr("d", function(d) {
-	        			return d3.geo.path();
+	        			return d3.geo.path(d);
 	        		})
 	        		.style("fill",function(d) { 
 	        			statename = d["properties"]["name"]; 
