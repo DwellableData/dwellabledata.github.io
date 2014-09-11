@@ -88,7 +88,7 @@
 
 	  	d3.json("us-states.json", function(collection) {
 
-	    	d3.select(id).selectAll(".state")
+	    	d3.select(id).selectAll("path")
 	    		.data(collection.features)
 	      		.enter().append("path")
 	      			.attr("class", ".state")
