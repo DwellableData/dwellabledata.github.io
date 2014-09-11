@@ -78,8 +78,8 @@
 <script>
 
 
-  var width = 750;
-  var height = 500;
+  var width = 600;
+  var height = 400;
 
   var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -88,7 +88,7 @@
     .style("margin", "10px auto");
 
     var projection = d3.geo.albersUsa()
-      .scale(900)
+      .scale(600)
       .translate([width/2, height/2]);
 
   var colors = ['rgb(252,141,89)','rgb(254,224,144)','rgb(255,255,191)','rgb(224,243,248)','rgb(145,191,219)','rgb(69,117,180)'];
