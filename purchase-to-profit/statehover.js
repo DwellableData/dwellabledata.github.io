@@ -70,8 +70,6 @@
 						};
 						return "";
 				    })
-				    .attr("width", 100)
-				    .attr("height", 12)
 				    .attr("x", function(d){
 				    	statename = d["properties"]["name"]; 
 	        			if (statedata[statename] != undefined) {
@@ -96,8 +94,6 @@
 						};
 						return "";
 				    })
-				    .attr("width", 100)
-				    .attr("height", 12)
 				    .attr("x", function(d){
 				    	statename = d["properties"]["name"]; 
 	        			if (statedata[statename] != undefined) {
