@@ -60,9 +60,10 @@
 
 			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
 
+
 			d3.select(id).selectAll(".labelname")
 				.data(collection.features).enter().append("svg:text").attr("class","labelname")
-					.html(function(d){
+					.text(function(d){
 						statename = d["properties"]["name"]; 
 
 						if ((statedata[statename] != undefined) && (key_stateids.indexOf(statename) > -1)) {
@@ -84,8 +85,8 @@
 				    });
 
 			d3.select(id).selectAll(".labeldescription")
-				.data(collection.features).enter().append("svg:text").attr("class","labeldescription")
-					.html(function(d){
+				.data(collection.features).enter().append("svg:text").attr("class", "labeldescription")
+					.text(function(d){
 						statename = d["properties"]["name"]; 
 						  var format = d3.format("$,");
 
