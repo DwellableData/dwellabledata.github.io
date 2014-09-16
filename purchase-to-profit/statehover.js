@@ -102,7 +102,7 @@
 				        	return statedata[statename].latitude;					
 						}
 				    })
-				    .attr("fill", "B3B3B3");
+				    .attr("fill", "#3A4145");
 
 
 
