@@ -79,7 +79,7 @@
 				        	return statedata[statename].latitude;					
 						}
 				    })
-				    .attr("fill", "#F3F3F3");
+				    .attr("fill", rgb(116, 130, 138));
 
 
 			d3.select(id).selectAll(".labelblack")
