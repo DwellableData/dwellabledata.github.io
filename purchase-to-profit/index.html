@@ -20,7 +20,6 @@
   .legend {
     font-size: 11px;
     font-family: Noto Serif, Segoe UI,Helvetica Neue,Arial,sans-serif; 
-    color: #3A4145; 
   }
   #tooltip{
     position: absolute;
@@ -87,6 +86,7 @@
       .attr("text-anchor", "middle")  
       .style("font-size", "18px") 
       .attr("font-family", "Noto Serif")
+      .attr("fill", "#3A4145")
       .text("Number of Years to Break Even on Vacation Rental Homes");
 
   var colors = ['rgb(252,141,89)','rgb(254,224,144)','rgb(255,255,191)','rgb(224,243,248)','rgb(145,191,219)','rgb(69,117,180)'];
@@ -149,7 +149,8 @@
     legend.append("text")
       .attr("x", function(d, i){ return width - l_width - 60;})
       .attr("y", function(d, i){ return height - (i*l_height) - l_height - 4;})
-      .text(function(d, i){ return legend_labels[5-i]+" years"; });
+      .text(function(d, i){ return legend_labels[5-i]+" years"; })
+      .style("fill", "#3A4145");
 
    /* draw states on id #statesvg */ 
     usa.draw("#statesvg", statedata, tooltipHtml, projection);
