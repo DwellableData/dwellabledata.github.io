@@ -19,7 +19,8 @@
   }
   .legend {
     font-size: 11px;
-    font-family: Noto Serif, Segoe UI,Helvetica Neue,Arial,sans-serif;  
+    font-family: Noto Serif, Segoe UI,Helvetica Neue,Arial,sans-serif; 
+    color: #3A4145; 
   }
   #tooltip{
     position: absolute;
@@ -73,6 +74,7 @@
     .attr("width", width)
     .attr("height", height)
     .attr("id", "statesvg")
+    .attr("color", "#3A4145")
     .style("margin", "10px auto");
 
     var projection = d3.geo.albersUsa()
