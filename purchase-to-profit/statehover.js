@@ -58,55 +58,52 @@
 						d3.select("#tooltip").transition().duration(700).style("opacity", 0);    
 					});
 
-			key_stateids = ["Washington", "California", "Colorado", "Georgia", "Hawaii", "Illinois", "Louisiana", "Massachusetts", "Montana", "North Carolina"];
-
-
-			d3.select(id).selectAll(".labelname")
-				.data(collection.features).enter().append("svg:text").attr("class","labelname")
+			darkbluestates = ["South Dakota", "Indiana", "Georgia", "Kentucky"]
+			d3.select(id).selectAll(".labelgrey")
+				.data(collection.features).enter().append("svg:text").attr("class", "labelgrey")
 					.text(function(d){
-						statename = d["properties"]["name"]; 
-
-						if ((statedata[statename] != undefined) && (key_stateids.indexOf(statename) > -1)) {
-				        	return (statedata[statename].label);
-						};
-						return "";
+						statename = d["properties"]["name"];
+						if (statedata[statename] != undefined && darkbluestates.indexOf(statename) > -1) {
+				        	return statedata[statename].years;							
+						}
 				    })
 				    .attr("x", function(d){
 				    	statename = d["properties"]["name"]; 
-	        			if (statedata[statename] != undefined) {
-				        	return statedata[statename].longitude;
-				        };
+				    	if (statedata[statename] != undefined) {
+				        	return statedata[statename].longitude;						
+						}
 				    })
 				    .attr("y", function(d){
 				    	statename = d["properties"]["name"]; 
-	        			if (statedata[statename] != undefined) {
-				        	return statedata[statename].latitude - 5;
-				        };
-				    });
+				    	if (statedata[statename] != undefined) {
+				        	return statedata[statename].latitude;					
+						}
+				    })
+				    .attr("fill", "#F3F3F3");
 
-			d3.select(id).selectAll(".labeldescription")
-				.data(collection.features).enter().append("svg:text").attr("class", "labeldescription")
+
+			d3.select(id).selectAll(".labelblack")
+				.data(collection.features).enter().append("svg:text").attr("class", "labelblack")
 					.text(function(d){
-						statename = d["properties"]["name"]; 
-						  var format = d3.format("$,");
-
-						if ((statedata[statename] != undefined) && (key_stateids.indexOf(statename) > -1)) {
-				        	return (format(statedata[statename].home) + ", " + statedata[statename].years + " years");
-						};
-						return "";
+						statename = d["properties"]["name"];
+						if (statedata[statename] != undefined && darkbluestates.indexOf(statename) == -1) {
+				        	return statedata[statename].years;							
+						}
 				    })
 				    .attr("x", function(d){
 				    	statename = d["properties"]["name"]; 
-	        			if (statedata[statename] != undefined) {
-				        	return statedata[statename].longitude;
-				        };
+				    	if (statedata[statename] != undefined) {
+				        	return statedata[statename].longitude;						
+						}
 				    })
 				    .attr("y", function(d){
 				    	statename = d["properties"]["name"]; 
-	        			if (statedata[statename] != undefined) {
-				        	return statedata[statename].latitude + 5;
-				        };
-				    });
+				    	if (statedata[statename] != undefined) {
+				        	return statedata[statename].latitude;					
+						}
+				    })
+				    .attr("fill", "black");
+
 
 
 	    });
