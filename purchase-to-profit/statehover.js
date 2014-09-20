@@ -58,7 +58,7 @@
 						d3.select("#tooltip").transition().duration(700).style("opacity", 0);    
 					});
 
-			darkbluestates = ["South Dakota", "Indiana", "Georgia", "Kentucky"]
+			darkbluestates = ["Indiana", "Nebraska", "Ohio", "Indiana"]
 			d3.select(id).selectAll(".labelgrey")
 				.data(collection.features).enter().append("svg:text").attr("class", "labelgrey")
 					.text(function(d){
