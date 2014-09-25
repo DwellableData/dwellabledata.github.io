@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+<style type="text/css">
+#states path {
+  fill: #ccc;
+  stroke: #fff;
+}
+
+path.arc {
+  pointer-events: none;
+  fill: #00008B;
+  stroke-opacity: 0.4;
+  stroke: #00008B;
+  display: inherit;
+}
+
+path.cell {
+  fill: none;
+  pointer-events: all;
+}
+
+circle {
+  pointer-events: none;
+  fill: #0000FF;
+  fill-opacity: .8;
+  stroke: #fff;
+  display: inherit;
+}
+
+#cells.voronoi path.cell {
+  stroke: #708090;
+  stroke-opacity: 0.7;
+}
+
+#cells g:hover path.arc {
+  fill: #FF4500;
+  stroke-opacity: 0.4;
+  stroke: #FF4500;
+  display: inherit;
+}
+
+#tooltip {
+  -moz-transition: all 0.15s;
+  -o-transition: all 0.15s;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+  opacity: 0.90;
+  position: absolute;
+  min-width: 60px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  }
+      
+#tooltip.hidden {
+  display: none;
+  }
+      
+#tooltip p {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  }   
+</style>
+
+  </head>
+  <body>
+
+<div id="tooltip" class="hidden">
+    <p><span id="city-label"></span></p>
+</div>
+
+<script type="text/javascript" src="../d3/d3.v3.min.js">
+</script>
+
+<script type="text/javascript" src="../d3/d3.geo.js">
+</script>
+
+<script type="text/javascript" src="../d3/d3.geom.js">
+</script>
+
+<script type="text/javascript">
+
+var w = 700,
+    h = 625;
+
+var projection = d3.geo.albers()
+    .scale(900)
+    .translate([w/2, h/2]);
+
+var path = d3.geo
+      .path()
+      .projection(projection);
+
+var svg = d3.select("body").insert("svg:svg", "h2")
+    .attr("width", w)
+    .attr("height", h);
+
+var states = svg.append("svg:g")
+    .attr("id", "states");
+
+var circles = svg.append("svg:g")
+    .attr("id", "circles");
+
+var cells = svg.append("svg:g")
+    .attr("id", "cells");
+
+d3.json("us-states.json", function(collection) {
+  states.selectAll("path")
+      .data(collection.features)
+    .enter().append("svg:path")
+      .attr("d", path);
+});
+
+
+
+var airports=[
+    {iata: 'Los Angeles', latitude:34.0522342, longitude:-118.2436849, area:  17.73, perc: 44.2}
+    ,{iata: 'Palm Springs', latitude:33.8302961, longitude:-116.5452921, area:  0, perc: 0}
+    ,{iata: 'San Diego', latitude:32.7153292, longitude:-117.1572551, area: 7.50, perc: 7.9}
+    ,{iata: 'San Francisco', latitude:37.3393857, longitude:-121.8949555, area: 8.43, perc: 10.0}
+    ,{iata: 'Atlanta', latitude:33.7489954, longitude:-84.3879824, area: 8.47, perc: 10.1}
+    ,{iata: 'New York', latitude:40.7142691, longitude:-74.0059729, area: 4.60, perc: 3.0}
+    ,{iata: 'Portland', latitude:45.5234515, longitude:-122.6762071, area: 6.09, perc: 5.2}
+    ,{iata: 'Philadelphia', latitude:39.952335, longitude:-75.163789, area: 4.38, perc: 2.7}
+    ,{iata: 'Seattle', latitude:47.2528768, longitude:-122.4442906, area: 4.66, perc: 3.1}
+    ,{iata: 'Calgary, AB', latitude:50.89019999999999, longitude:-113.9892, area:  3.66, perc: 1.9}
+    ,{iata: 'Vancouver, BC', latitude:49.27680000000001, longitude:-123.1469, area: 5.77, perc: 4.7}
+    ,{iata: 'Other', latitude:31.375822, longitude:-78.965782, area: 5.77, perc: 7.4}
+    ];
+
+var flights=[
+    {origin: 'Los Angeles', destination:'Palm Springs', count:4}
+    ,{origin: 'San Diego', destination:'Palm Springs', count:4}
+    ,{origin: 'San Francisco', destination:'Palm Springs', count:4}
+    ,{origin: 'Atlanta', destination:'Palm Springs', count:4}
+    ,{origin: 'New York', destination:'Palm Springs', count:4}
+    ,{origin: 'Portland', destination:'Palm Springs', count:4}
+    ,{origin: 'Philadelphia', destination:'Palm Springs', count:4}
+    ,{origin: 'Seattle', destination:'Palm Springs', count:4}
+    ,{origin: 'Calgary, AB', destination:'Palm Springs', count:4}
+    ,{origin: 'Vancouver, BC', destination:'Palm Springs', count:4}
+    ,{origin: 'Other', destination:'Palm Springs', count:4}
+    ];
+
+  var linksByOrigin = {},
+      countByAirport = {},
+      locationByAirport = {},
+      positions = [];
+
+
+  var arc = d3.geo.greatArc()
+      .source(function(d) { return locationByAirport[d.source]; })
+      .target(function(d) { return locationByAirport[d.target]; });
+
+  flights.forEach(function(flight) {
+    var origin = flight.origin,
+        destination = flight.destination,
+        wt = flight.count
+        links = linksByOrigin[origin] || (linksByOrigin[origin] = []);
+    links.push({source: origin, target: destination, weight: wt});
+    countByAirport[origin] = (countByAirport[origin] || 0) + 1;
+    countByAirport[destination] = (countByAirport[destination] || 0) + 1;
+  });
+
+  //d3.tsv("/data/palmsprings/airports.tsv", function(airports) {
+
+    // Only consider airports with at least one flight.
+    airports = airports.filter(function(airport) {
+      if (countByAirport[airport.iata]) {
+        var location = [+airport.longitude, +airport.latitude];
+
+        locationByAirport[airport.iata] = location;
+        positions.push(projection(location));
+        return true;
+      }
+    });
+
+    // Compute the Voronoi diagram of airports' projected positions.
+    var polygons = d3.geom.voronoi(positions);
+
+    var g = cells.selectAll("g")
+        .data(airports)
+      .enter().append("svg:g");
+
+    g.append("svg:path")
+        .attr("class", "cell")
+        .attr("d", function(d, i) { return "M" + polygons[i].join("L") + "Z"; })
+        .on("mouseover", function(d, i) { 
+                
+          var xPosition = d3.select(this).attr("cx");
+          var yPosition = d3.select(this).attr("cy");
+
+          //Handle Text in the tooltip
+          tiptext = ("<strong>" + d.iata + "</strong>" + "<br/>");
+          
+          if (d.iata !== "Palm Springs") {
+              tiptext += ("Interest: " + d.perc + "%<br/>");
+              }
+
+          //Update the tooltip position and value
+          d3.select("#tooltip")
+          //Show the tooltip above where the mouse triggers the event
+            .style("left", (positions[i][0] - 30) + "px")     
+            .style("top", (positions[i][1] - 90) + "px")
+            .select("#city-label")
+            .html(tiptext);
+          
+          //Show the tooltip
+          d3.select("#tooltip").classed("hidden", false);
+
+      });
+
+    g.selectAll("path.arc")
+        .data(function(d) { return linksByOrigin[d.iata] || []; })
+      .enter().append("svg:path")
+        .attr("class", "arc")
+        .attr("d", function(d) { return path(arc(d)); })
+        .style("stroke-width", function(d) { 
+            if (d.weight > 0) {
+              return (Math.round(d.weight)) + "px";
+              }
+              return 0;
+            });
+
+    g.selectAll("circle")
+        .data(airports)
+      .enter().append("svg:circle")
+        .attr("cx", function(d, i) { return positions[i][0]; })
+        .attr("cy", function(d, i) { return positions[i][1]; })
+        .attr("r", function(d, i) { 
+            if (d.iata === "Palm Springs") {
+              return 5;             
+            }
+            return d.area;
+          })
+        .style("fill", function(d, i) {
+            if (d.iata === "Palm Springs") {
+              return "red";             
+            }
+        })
+        //.attr("r", function(d, i) { return Math.sqrt(countByAirport[d.iata]); })
+        .sort(function(a, b) { return countByAirport[b.iata] - countByAirport[a.iata]; });
+  //});
+
+    </script>
+
+
+  </body>
+</html>
