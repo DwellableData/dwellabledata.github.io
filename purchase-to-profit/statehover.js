@@ -31,12 +31,16 @@
 	        		.attr("d", function(d) {
 	        			statename = d["properties"]["name"]; 
 
+						if (statename ==  "District of Columbia") {
+							dc_coords = [[[-75, 38],[-74, 38],[-74, 37],[-75, 37]]];
+							statepath = transform(dc_coords, projection);
+							return statepath;
+						}
+
 	        			if (statedata[statename] != undefined) {
-							x = transform(d["geometry"]["coordinates"], projection);
-							return x;
+							statepath = transform(d["geometry"]["coordinates"], projection);
+							return statepath;
 	        			};
-
-
 	        		})
 	        		.style("fill",function(d) { 
 	        			statename = d["properties"]["name"]; 
@@ -52,18 +56,17 @@
 							.style("top", (d3.event.pageY - 28) + "px");
 					}) 
 					.on("mouseout", function(d) {
-						var xPosition = d3.select(this).attr("cx");
-          				var yPosition = d3.select(this).attr("cy");
-
 						d3.select("#tooltip").transition().duration(700).style("opacity", 0);    
 					});
 
-			darkbluestates = ["Indiana", "Nebraska", "Ohio", "Indiana", "Georgia"]
-			d3.select(id).selectAll(".labelgrey")
-				.data(collection.features).enter().append("svg:text").attr("class", "labelgrey")
+			darkstates = ["Indiana", "Nebraska", "Ohio", "Indiana", "Wyoming", "Colorado", "North Carolina"]
+
+
+			d3.select(id).selectAll(".label")
+				.data(collection.features).enter().append("svg:text").attr("class", "label")
 					.text(function(d){
 						statename = d["properties"]["name"];
-						if (statedata[statename] != undefined && darkbluestates.indexOf(statename) > -1) {
+						if (statedata[statename] != undefined) {
 				        	return statedata[statename].years;							
 						}
 				    })
@@ -79,30 +82,23 @@
 				        	return statedata[statename].latitude;					
 						}
 				    })
-				    .style("fill", "#c8d1d6");
-
-
-			d3.select(id).selectAll(".labelblack")
-				.data(collection.features).enter().append("svg:text").attr("class", "labelblack")
-					.text(function(d){
-						statename = d["properties"]["name"];
-						if (statedata[statename] != undefined && darkbluestates.indexOf(statename) == -1) {
-				        	return statedata[statename].years;							
-						}
-				    })
-				    .attr("x", function(d){
+				    .style("fill", function(d, i) {
 				    	statename = d["properties"]["name"]; 
-				    	if (statedata[statename] != undefined) {
-				        	return statedata[statename].longitude;						
-						}
+				    	if (statedata[statename] != undefined && darkstates.indexOf(statename) > -1) {
+				        	return "#c8d1d6" 						
+						}	
+						return "#3A4145";
 				    })
-				    .attr("y", function(d){
-				    	statename = d["properties"]["name"]; 
-				    	if (statedata[statename] != undefined) {
-				        	return statedata[statename].latitude;					
-						}
-				    })
-				    .style("fill", "#3A4145");
+				    .on("mouseover", function(d) {
+	        			statename = d["properties"]["name"];
+						d3.select("#tooltip").transition().duration(200).style("opacity", 0.9);      
+						d3.select("#tooltip").html(toolTip(statedata[statename]))  
+							.style("left", (d3.event.pageX) + "px")     
+							.style("top", (d3.event.pageY - 28) + "px");
+					}) 
+					.on("mouseout", function(d) {
+						d3.select("#tooltip").transition().duration(700).style("opacity", 0);    
+					});
 
 
 

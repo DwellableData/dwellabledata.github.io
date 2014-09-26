@@ -9,11 +9,7 @@
   .state:hover{
     fill-opacity:0.5;
   }
-  .labelgrey{
-    font-family: Futura;
-    font-size: 9px;
-  }
-  .labelblack{
+  .label{
     font-family: Futura;    
     font-size: 9px;
   }
@@ -89,9 +85,10 @@
       .style("fill", "#3A4145")
       .text("Number of Years to Break Even on Vacation Rental Homes");
 
-  var colors = ['rgb(252,141,89)','rgb(254,224,144)','rgb(255,255,191)','rgb(224,243,248)','rgb(145,191,219)','rgb(69,117,180)'];
+  var colors = ['rgb(50,136,189)', 'rgb(153,213,148)','rgb(230,245,152)','rgb(254,224,139)','rgb(252,141,89)', 'rgb(213,62,79)'];
 
-  var legend_labels = ['0-2', '2-4', '4-6', '6-8', '8-10', '10+']
+
+  var legend_labels = ['0 - 1.9', '2 - 3.9', '4 - 5.9', '6 - 7.9', '8 - 9.9', '10+']
 
   var format = d3.format("$,");
 
@@ -147,10 +144,11 @@
       .style("fill", function(d, i) { return colors[i]; });
 
     legend.append("text")
-      .attr("x", function(d, i){ return width - l_width - 60;})
+      .attr("x", function(d, i){ return width - l_width - 70;})
       .attr("y", function(d, i){ return height - (i*l_height) - l_height - 4;})
       .text(function(d, i){ return legend_labels[5-i]+" years"; })
-      .style("fill", "#3A4145");
+      .style("fill", "#3A4145")
+      .style("text-anchor", "start");
 
    /* draw states on id #statesvg */ 
     usa.draw("#statesvg", statedata, tooltipHtml, projection);
