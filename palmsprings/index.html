@@ -197,6 +197,15 @@ var scale = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]
 
 margin_left = 40
 
+svg.append("text")
+  .attr("class", "label")
+  .attr("x", w/2)
+  .attr("y", 60)
+  .attr("font-size", "16")
+  .attr("text-anchor", "middle")
+  .text("Origin of Interest in Vacation Rentals in Palm Springs")
+  .style("fill", "#3A4145");
+
 svg.append("rect")
   .attr("x", function(d, i){ return margin_left + 5;})
   .attr("y", function(d, i){ return margin_top + b_height/10*i;})
