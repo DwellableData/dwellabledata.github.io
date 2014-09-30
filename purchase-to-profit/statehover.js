@@ -22,6 +22,9 @@
 			return path;
 		}
 
+newengland = ["Maine", "New Hampshire", "New York", "Vermont", "Massachusetts", "Rhode Island", "Connecticut", "New Jersey", "Delaware", "District of Columbia", "Maryland"]
+
+
 	  	d3.json("us-states.json", function(collection) {
 
 	    	d3.select(id).selectAll(".state")
@@ -50,9 +53,13 @@
 	        		})
 					.on("mouseover", function(d) {
 	        			statename = d["properties"]["name"];
+	        			NEoffset = 0
+	        			if (newengland.indexOf(statename) > -1) {
+	        				NEoffset = 175;
+	        			}
 						d3.select("#tooltip").transition().duration(200).style("opacity", 0.9);      
 						d3.select("#tooltip").html(toolTip(statedata[statename]))  
-							.style("left", (d3.event.pageX) + "px")     
+							.style("left", (d3.event.pageX - NEoffset) + "px")     
 							.style("top", (d3.event.pageY - 28) + "px");
 					}) 
 					.on("mouseout", function(d) {
@@ -91,9 +98,13 @@
 				    })
 				    .on("mouseover", function(d) {
 	        			statename = d["properties"]["name"];
+	        			NEoffset = 0
+	        			if (newengland.indexOf(statename) > -1) {
+	        				NEoffset = 175;
+	        			}
 						d3.select("#tooltip").transition().duration(200).style("opacity", 0.9);      
 						d3.select("#tooltip").html(toolTip(statedata[statename]))  
-							.style("left", (d3.event.pageX) + "px")     
+							.style("left", (d3.event.pageX - NEoffset) + "px")     
 							.style("top", (d3.event.pageY - 28) + "px");
 					}) 
 					.on("mouseout", function(d) {
